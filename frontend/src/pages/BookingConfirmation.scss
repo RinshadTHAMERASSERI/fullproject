@@ -1,0 +1,278 @@
+// BookingConfirmation.scss
+.confirmation-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.confirmation-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.confirmation-header {
+  background: linear-gradient(135deg, #2c5530, #4a7c59);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  
+  h1 {
+    margin: 0.5rem 0;
+    font-size: 2rem;
+  }
+  
+  p {
+    margin: 0;
+    opacity: 0.9;
+  }
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  
+  &.confirmed {
+    background: #22c55e;
+    color: white;
+  }
+  
+  &.pending {
+    background: #f59e0b;
+    color: white;
+  }
+  
+  &.cancelled {
+    background: #ef4444;
+    color: white;
+  }
+}
+
+.details-section, .price-section, .payment-section, .notes-section {
+  padding: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  
+  h2 {
+    color: #374151;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f3f4f6;
+  
+  strong {
+    color: #374151;
+  }
+  
+  span {
+    color: #6b7280;
+    text-align: right;
+  }
+}
+
+.price-breakdown {
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    
+    &.total {
+      border-top: 2px solid #e5e7eb;
+      border-bottom: none;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+      font-size: 1.25rem;
+      color: #2c5530;
+    }
+  }
+}
+
+.payment-status {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  
+  &.paid {
+    background: #dcfce7;
+    color: #166534;
+  }
+  
+  &.failed {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+  
+  &.pending {
+    background: #fef3c7;
+    color: #92400e;
+  }
+}
+
+.payment-id {
+  font-family: monospace;
+  background: #f3f4f6;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.action-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.pay-now-btn {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+  
+  &:hover {
+    background: #16a34a;
+  }
+}
+
+.payment-note {
+  color: #6b7280;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+.success-message {
+  text-align: center;
+  margin-bottom: 2rem;
+  
+  .success-icon {
+    font-size: 4rem;
+    color: #22c55e;
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    color: #22c55e;
+    margin-bottom: 1rem;
+  }
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #2c5530;
+  color: white;
+  
+  &:hover {
+    background: #1e3a24;
+  }
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  
+  &:hover {
+    background: #e5e7eb;
+  }
+}
+
+.notes-section {
+  ul {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      
+      &:before {
+        content: '•';
+        color: #2c5530;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+}
+
+.loading-state, .error-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  
+  .loading-spinner {
+    border: 3px solid #f3f4f6;
+    border-top: 3px solid #2c5530;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .confirmation-container {
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+  }
+  
+  .confirmation-header {
+    padding: 1.5rem 1rem;
+    
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .details-section, .price-section, .payment-section, .notes-section {
+    padding: 1.5rem 1rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+}

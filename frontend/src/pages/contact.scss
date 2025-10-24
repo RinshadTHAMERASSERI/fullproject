@@ -1,0 +1,344 @@
+// Variables
+$primary-color: #0a5f75;
+$secondary-color: #1abc9c;
+$accent-color: #e67e22;
+$white: #ffffff;
+$light-bg: #f8f9fa;
+$text-color: #333;
+$text-light: #666;
+$border-color: #e0e0e0;
+
+.contact-page {
+  min-height: 100vh;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+}
+
+// Hero Section
+.contact-hero {
+  background: linear-gradient(rgba(10, 95, 117, 0.8), rgba(10, 95, 117, 0.9)),
+              url('../assets/Forests\ by\ the\ Sea\ -\ Mangrove\ Deforestation\ -\ Kuli\ Kuli\ Foods.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  text-align: center;
+  color: $white;
+  
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  
+  p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// Main Content Layout
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 50px;
+  padding: 80px 0;
+  
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+// Contact Information
+.contact-info {
+  h2 {
+    color: $primary-color;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  
+  > p {
+    color: $text-light;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+}
+
+.contact-details {
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 2rem;
+    padding: 20px;
+    background: $light-bg;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateX(5px);
+    }
+    
+    .contact-icon {
+      font-size: 1.5rem;
+      background: $primary-color;
+      color: $white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    h3 {
+      color: $primary-color;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    
+    p {
+      color: $text-light;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+}
+
+// Social Links
+.social-links {
+  margin-top: 3rem;
+  
+  h3 {
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: $primary-color;
+      color: $white;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: $secondary-color;
+        transform: translateY(-3px);
+      }
+    }
+  }
+}
+
+// Contact Form and Map
+.contact-form-map {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+// Contact Form
+.contact-form-container {
+  background: $white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  
+  h2 {
+    color: $primary-color;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+}
+
+.contact-form {
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: $text-color;
+      font-weight: 600;
+    }
+    
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid $border-color;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+      }
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+  }
+  
+  .submit-btn {
+    background: $primary-color;
+    color: $white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    
+    &:hover {
+      background: darken($primary-color, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+    }
+  }
+}
+
+// Map Section
+.map-container {
+  h2 {
+    color: $primary-color;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+}
+
+.google-map {
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.map-info {
+  background: $light-bg;
+  padding: 20px;
+  border-radius: 10px;
+  
+  h4 {
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      padding: 8px 0;
+      color: $text-light;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      
+      strong {
+        color: $text-color;
+      }
+    }
+  }
+}
+
+// FAQ Section
+.faq-section {
+  background: $light-bg;
+  padding: 80px 0;
+  
+  h2 {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+  }
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  
+  .faq-item {
+    background: $white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    
+    h3 {
+      color: $primary-color;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    p {
+      color: $text-light;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .contact-hero {
+    padding: 60px 0;
+    
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  .contact-content {
+    padding: 40px 0;
+  }
+  
+  .contact-form-container {
+    padding: 20px;
+  }
+  
+  .faq-section {
+    padding: 60px 0;
+    
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}

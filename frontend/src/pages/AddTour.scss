@@ -1,0 +1,373 @@
+// AddTour.scss
+
+// --- Variables (adjust to match your global theme) ---
+$primary-color: #0a5f75;
+$secondary-color: #1abc9c;
+$danger-color: #e74c3c;
+$light-bg: #f8fafc;
+$white: #ffffff;
+$text-color: #2d3748;
+$border-color: #e2e8f0;
+$border-radius: 12px;
+$shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+// --- Base Styles ---
+.add-tour-container {
+  min-height: 100vh;
+  background-color: $light-bg;
+  padding: 2rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  // Container for the form card
+  .add-tour-card {
+    background: $white;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    width: 100%;
+    max-width: 900px;
+    padding: 2.5rem;
+    margin: 1.5rem auto;
+
+    // Title
+    h2 {
+      text-align: center;
+      color: $primary-color;
+      margin-bottom: 2rem;
+      font-size: 1.875rem; // 30px
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    // Main form
+    .tour-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    // Form row (horizontal on desktop, vertical on mobile)
+    .form-row {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+
+      // Full-width fields (like description)
+      &.full-width {
+        flex-direction: column;
+        .form-group {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+    }
+
+    // Individual form group
+    .form-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0; // Prevent overflow
+
+      label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: $text-color;
+        font-size: 0.9375rem; // 15px
+        display: flex;
+        align-items: center;
+
+        &::after {
+          content: '';
+          color: $danger-color;
+          margin-left: 0.25rem;
+        }
+
+        &.required::after {
+          content: '*';
+        }
+      }
+
+      // Input styles
+      input,
+      textarea,
+      select {
+        padding: 0.75rem 1rem;
+        border: 1px solid $border-color;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: inherit;
+        background: $white;
+        transition: $transition;
+        width: 100%;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          box-shadow: 0 0 0 3px rgba($primary-color, 0.15);
+        }
+
+        &::placeholder {
+          color: #a0aec0;
+        }
+      }
+
+      // File input (special styling)
+      input[type='file'] {
+        padding: 0.5rem 0;
+        border: none;
+        background: transparent;
+        font-size: 0.9375rem;
+        cursor: pointer;
+
+        &::-webkit-file-upload-button {
+          background: $primary-color;
+          color: white;
+          padding: 0.5rem 1rem;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: $transition;
+
+          &:hover {
+            background: darken($primary-color, 10%);
+          }
+        }
+      }
+
+      // Textarea
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      // Select
+      select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 1em;
+        padding-right: 2.5rem;
+      }
+    }
+
+    /* === Image Preview Section === */
+    .file-preview {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 8px;
+      margin-top: 0.75rem;
+      border: 1px solid $border-color;
+      animation: fadeIn 0.3s ease;
+
+      img {
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid $border-color;
+        flex-shrink: 0;
+      }
+
+      .file-info {
+        flex: 1;
+        font-size: 0.875rem;
+        color: $text-color;
+
+        .file-name {
+          font-weight: 600;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 200px;
+        }
+
+        .file-size {
+          color: #718096;
+          margin-top: 0.25rem;
+          font-size: 0.8125rem;
+        }
+      }
+
+      .remove-file {
+        background: $danger-color;
+        color: white;
+        width: 26px;
+        height: 26px;
+        border: none;
+        border-radius: 50%;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: $transition;
+        flex-shrink: 0;
+
+        &:hover {
+          background: darken($danger-color, 10%);
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    /* === Submit Button Section === */
+    .submit-section {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+
+      button {
+        padding: 0.875rem 2.5rem;
+        background: $primary-color;
+        color: $white;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.125rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: $transition;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        min-width: 200px;
+        justify-content: center;
+
+        &:hover:not(:disabled) {
+          background: darken($primary-color, 10%);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 15px rgba($primary-color, 0.3);
+        }
+
+        &:disabled {
+          opacity: 0.75;
+          cursor: not-allowed;
+          transform: none;
+          box-shadow: none;
+        }
+
+        .spinner {
+          width: 18px;
+          height: 18px;
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          border-top: 2px solid white;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+        }
+      }
+    }
+  }
+}
+.missing-fields-warning {
+  margin-top: 12px;
+  color: #d97706; // orange-500
+  font-size: 0.9rem;
+  text-align: center;
+  background-color: #fffbeb;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #fbbf24;
+}
+
+// Animations
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .add-tour-container {
+    padding: 1.5rem 1rem;
+
+    .add-tour-card {
+      padding: 1.75rem;
+      margin: 1rem auto;
+
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group {
+        label {
+          font-size: 0.875rem;
+        }
+
+        input,
+        textarea,
+        select {
+          padding: 0.625rem 0.875rem;
+          font-size: 0.9375rem;
+        }
+      }
+
+      .file-preview {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+
+        img {
+          width: 56px;
+          height: 56px;
+        }
+
+        .file-info {
+          width: 100%;
+
+          .file-name {
+            max-width: 100%;
+          }
+        }
+      }
+
+      .submit-section button {
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        min-width: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .add-tour-container {
+    padding: 1rem 0.75rem;
+
+    .add-tour-card {
+      padding: 1.5rem 1rem;
+      margin: 0.75rem;
+
+      h2 {
+        font-size: 1.375rem;
+      }
+
+      .form-group input[type='file'] {
+        &::-webkit-file-upload-button {
+          padding: 0.4rem 0.8rem;
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+}
+
+// Utility: Full-width form group
+.form-group.full-width {
+  flex: 1 1 100%;
+}
