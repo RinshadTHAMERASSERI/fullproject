@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'https://backend-kayaking.onrender.com/api',
+  baseURL: 'https://backend-kayaking-1.onrender.com/api',
 });
 
 // Attach token to all requests
